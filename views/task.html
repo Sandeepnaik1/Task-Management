@@ -1,0 +1,73 @@
+<!-- /public/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/public/css/style.css"> <!-- Optional for additional custom styles -->
+</head>
+<body class="bg-light">
+    <div class="container my-5">
+        <h2 class="text-center">Your Tasks</h2>
+        <div id="tasks" class="mb-4"></div> <!-- Task list will be displayed here -->
+
+        <!-- Table to display tasks -->
+        
+
+        <h3 class="text-center">Create a New Task</h3>
+        <div class="card">
+            <div class="card-body">
+                <form id="taskForm" method="POST" action="/tasks">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" name="description" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id="status" name="status" class="form-control" required>
+                            <option value="" disabled selected>Select status</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <input type="hidden" id="user" name="user" value="your_user_id_here"> <!-- User ID if needed -->
+                    <button type="submit" class="btn btn-primary btn-block">Create Task</button>
+                </form>
+
+
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container my-5">
+        <h2 class="text-center">Your Tasks</h2>
+        <table class="table table-bordered" id="taskTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>User ID</th>
+                </tr>
+            </thead>
+            <tbody id="taskList">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/public/js/main.js"></script> <!-- JavaScript for handling task operations -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
